@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.sony.com/sonyservice/cotizaciones" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.sony.com/sonyservice/cotizaciones" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.sony.com/sonyservice/cotizaciones">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.sony.com/sonyservice/cotizaciones" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="SonyQuoteServiceProcessRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="orderId" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="items" type="tns:Item"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SonyQuoteServiceProcessResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" nillable="true" type="tns:Quote"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="Item">
+        <xs:sequence>
+          <xs:element name="itemId" type="xs:string"/>
+          <xs:element name="quantity" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Quote">
+        <xs:sequence>
+          <xs:element name="supplierPrice" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SonyQuoteServiceProcessResponse">
+    <wsdl:part element="tns:SonyQuoteServiceProcessResponse" name="SonyQuoteServiceProcessResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SonyQuoteServiceProcessRequest">
+    <wsdl:part element="tns:SonyQuoteServiceProcessRequest" name="SonyQuoteServiceProcessRequest"/>
+  </wsdl:message>
+  <wsdl:portType name="CotizacionPort">
+    <wsdl:operation name="SonyQuoteServiceProcess">
+      <wsdl:input message="tns:SonyQuoteServiceProcessRequest" name="SonyQuoteServiceProcessRequest"/>
+      <wsdl:output message="tns:SonyQuoteServiceProcessResponse" name="SonyQuoteServiceProcessResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CotizacionPortSoap11" type="tns:CotizacionPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SonyQuoteServiceProcess">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SonyQuoteServiceProcessRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SonyQuoteServiceProcessResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CotizacionPortService">
+    <wsdl:port binding="tns:CotizacionPortSoap11" name="CotizacionPortSoap11">
+      <soap:address location="http://localhost:8089/ws/cotizaciones"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

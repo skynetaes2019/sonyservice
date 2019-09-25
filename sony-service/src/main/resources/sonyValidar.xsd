@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+targetNamespace="http://www.sony.com/sonyservice/validaciones" 
+xmlns:tns="http://www.sony.com/sonyservice/validaciones"
+elementFormDefault="qualified">
+
+	
+	<xs:element name="OrderQuouteElementRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orderId" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="OrderQuouteElementResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="xs:boolean"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+</xs:schema>

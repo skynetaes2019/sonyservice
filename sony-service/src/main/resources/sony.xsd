@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema  xmlns:xs="http://www.w3.org/2001/XMLSchema"  
+targetNamespace="http://www.sony.com/sonyservice/cotizaciones" 
+xmlns:tns="http://www.sony.com/sonyservice/cotizaciones"
+elementFormDefault="qualified">
+
+	<xs:element name="SonyQuoteServiceProcessRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="orderId" type="xs:string" />
+				<xs:element name="items" type="tns:Item" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="SonyQuoteServiceProcessResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="result" type="tns:Quote" nillable="true"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Item">
+		<xs:sequence>
+			<xs:element name="itemId" type="xs:string"/>
+			<xs:element name="quantity" type="xs:long"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Quote">
+		<xs:sequence>
+			<xs:element name="supplierPrice" type="xs:string" nillable="true"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+
+	
+</xs:schema>
