@@ -47,3 +47,6 @@ Si todo esta configurado correctamente la aplicación debe funcionar sin inconve
 
 Cualquier inquietud por favor direccionarla al correo: skynetaes2019@gmail.com
 - Tiempo de Respuesta 3 días calendario  
+
+## Consideraciones adicionales
+No se entrega un esquema de base de datos especifico ya que como se menciono anteriormente, la lógica del servicio no fue aclarada y adicionalmente uno de los requerimientos de la empresa kallsonys es que la BD de sony fuera alojada en la BD del sistema de información. 
