@@ -1,16 +1,19 @@
 
 --Consulta tabla items
 SELECT * FROM ITEM_SONY
---Insercioens de pruebas
-INSERT INTO ITEM_SONY VALUES ('112233',322123,'Plancha');
-INSERT INTO ITEM_SONY VALUES ('443355',1232431,'TV');
-INSERT INTO ITEM_SONY VALUES ('665345',933554,'PS3');
-INSERT INTO ITEM_SONY VALUES ('345234',3500450,'Pc Portatil');
-INSERT INTO ITEM_SONY VALUES ('853455',2644054,'Celular');
+
+--Insercioens de pruebas en tabla items
+INSERT INTO ITEM_SONY VALUES ('112233',322123,'Plancha Kalley');
+INSERT INTO ITEM_SONY VALUES ('443355',1232431,'TV LG 40"');
+INSERT INTO ITEM_SONY VALUES ('665345',933554,'PlayStation 3');
+INSERT INTO ITEM_SONY VALUES ('345234',3500450,'Pc HP Portatil 4400');
+INSERT INTO ITEM_SONY VALUES ('853455',2644054,'Celular xiomi M9');
 
 --Consulta tabla ordenes
 SELECT * FROM ORDER_SONY
---Insercioes de pruebas
+
+--Inserciones de pruebas
+
 INSERT INTO order_sony (ID,cliente,costo_total,estado,fecha_aprobacion,fecha_recepcion) 
 values('5345345','KALLSONYS',1514521,'Y',TO_DATE('2003/05/03', 'yyyy/mm/dd'),TO_DATE('2003/05/03', 'yyyy/mm/dd'));
 INSERT INTO order_sony (ID,cliente,costo_total,estado,fecha_aprobacion,fecha_recepcion) 
