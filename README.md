@@ -1,6 +1,18 @@
+# Actualización 24/10/2019
+
+Se proceden a realizar los siguientes ajustes en el servicio:
+ - Cuando una orden con items es cotizada por la operación SonyQuoteServiceProcess, el servicio almacena la orden y el detalle en la BD
+ - Cuando una orden es cotizada por default queda en estado 'P' de pendiente confirmación
+ - Si no se recibe confirmación de la orden, posterior a 3 mins (180000 milisegundos) el servicio coloca la orden en estado 'N' de cancelada, este parámetro es modificable desde el archivo application.properties
+ - Cuando una orden con items es confirmada por la operación OrderQuouteElement, el servicio cambia el estado de la orden a 'Y' de Confirmada
+ - Se renombra la columna Fecha_Aprobación de la tabla order_SONY a Recha_Revision
+ - El modo de persistencia se encuentra en update por lo que se recomienda eliminar el anterior modelo de datos y ejecutar el servicio en modo update.
+ - Se actualiza archivo scripGral, se adiciona ddl para la creación de las tablas respectivas
+ - Se modifica Readme.md
+ 
 # Sony Service
 
-El servicio de Sony es un WS SOAP que expone dos funcionalidades una para la cotización de una orden y sus respectivos items y la otra para validar una orden almacenada. Como no fue posible validar la lógica del servicio con el docente de pica, ya que no se recibio retroalimentación de las inquietudes expuestas con este servicio, se exponen las funcionalidades básicas que estaban en el contrato WSDL original.
+El servicio de Sony es un WS SOAP que expone dos funcionalidades una para la cotización de una orden y sus respectivos items y la otra para confirmar una orden almacenada. 
 
 ## Archivos
 - Código fuente servicio sony realizado con Spring Boot

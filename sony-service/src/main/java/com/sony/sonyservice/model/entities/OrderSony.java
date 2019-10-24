@@ -25,7 +25,7 @@ public class OrderSony {
 	private Date fechaRecepcion;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "FECHA_APROBACION")
+	@Column(name = "FECHA_REVISION")
 	private Date fechaAprobacion;
 	
 	@Column(name = "ESTADO" ,length = 1)
